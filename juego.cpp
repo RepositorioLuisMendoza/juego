@@ -56,4 +56,5 @@ void juego::paredes_()
     crear_pared(666,0,34,233);
     crear_pared(0,398,34,700);
     crear_pared(666,400,34,300);
+     crear_pared(666,400,34,300);
 }
