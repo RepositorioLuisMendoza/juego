@@ -27,24 +27,37 @@ cuerpo::cuerpo(int r_, int x, int y)
     posx = x;
     posy = y;
     setPos(posx, posy);
+    velocidadY = 0;
+    aceleracionGravedad = 1;
 
-    complete = new QPixmap(":/imagenes/pngwing.com.png");
-    image = 0;
-    muerte = 0;
-    nuevo = complete->copy(170, 0, 24 * 1, 24 * 11);
-    *complete = complete->copy(415, 0, 24 * 1, 24 * 12);
-    setPos(150, 76);
-    ganador = new QPixmap(":/imagenes/143bb54804da15cc3a12b9a5be4d48b9.png");
-    perdedor = new QPixmap(":/imagenes/BMO - Game over.png");
-    actual = new QPixmap;
-    time = new QTimer;
-    //connect(time, SIGNAL(timeout()), this, SLOT(actualiza_sprite()));
-    time->start(100);
+//    complete = new QPixmap(":/imagenes/lobito.png");
+//    image = 0;
+//    muerte = 0;
+//    //nuevo = complete->copy(170, 0, 24 * 1, 24 * 11);
+//    *complete = complete->copy(0, 0, 140 * 6, 140 * 2);
+//    setPos(150, 76);
+//    //ganador = new QPixmap(":/imagenes/143bb54804da15cc3a12b9a5be4d48b9.png");
+//    //perdedor = new QPixmap(":/imagenes/BMO - Game over.png");
+//    actual = new QPixmap;
+//    time = new QTimer;
+//    //connect(time, SIGNAL(timeout()), this, SLOT(actualiza_sprite()));
+//    time->start(100);
+}
+QRectF cuerpo::boundingRect() const
+{
+    return QRectF(-r,-r,2*r,2*r);
 }
 
+void cuerpo::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
+{
+    painter->setBrush(Qt:: yellow);
+    painter->drawEllipse(boundingRect());
+
+}
+/*
 void cuerpo::select_sprite(int x, int y)
 {
-    *actual = complete->copy(24 * x, 24 * y, 24, 24);
+    *actual = complete->copy(140 * x, 140 * y, 140, 140);
     setPixmap(*actual);
 }
 
@@ -61,34 +74,36 @@ void cuerpo::actualiza_sprite(short dir)
     }
 }
 
+*/
 void cuerpo::Move_arriba()
 {
     posy -= 1 * velocidad;
     setPos(posx, posy);
-    actualiza_sprite(3);
+    //actualiza_sprite(3);
 }
 
 void cuerpo::Move_abajo()
 {
     posy += 1 * velocidad;
     setPos(posx, posy);
-    actualiza_sprite(1);
+    //actualiza_sprite(1);
 }
 
 void cuerpo::Move_izquierda()
 {
     posx -= 1 * velocidad;
     setPos(posx, posy);
-    actualiza_sprite(2);
+    //actualiza_sprite(2);
 }
 
 void cuerpo::Move_derecha()
 {
     posx += 1 * velocidad;
     setPos(posx, posy);
-    actualiza_sprite(0);
+    //actualiza_sprite(0);
 }
 
+/*
 void cuerpo::verificacion(cuerpo* cuerpo)
 {
     if (cuerpo->getPosx() < 7 && cuerpo->getPosy() > 313)
@@ -136,3 +151,21 @@ void cuerpo::perdiste()
     if (scene)
     scene->setBackgroundBrush(l);
 }
+//void cuerpo::start_parabolic(int tipe)
+//{
+//    int vx[5]={0,-10,10,10,-10}, vy[2]={20,-60};
+
+//    if(!band_parabolic){
+//        band_parabolic = true;
+//        px=x();
+//        py=y();
+//        setVx(vx[tipe]);
+//        setVy(vy[tipe<=2]);
+//        actualizar(4-tipe);
+//        c = 1;
+//        time_salto->start(10);
+//    }
+
+//}
+
+*/

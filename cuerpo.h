@@ -13,8 +13,14 @@ class cuerpo : public QObject, public QGraphicsPixmapItem
     int velocidad = 5;
 
 public:
+
+
     cuerpo(int r_, int x, int y);
+    QRectF boundingRect() const;
+    void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget = nullptr);
     void select_sprite(int x, int y);
+
+
     void select_sprite_muerte(int x, int y);
     void ganaste();
     void perdiste();
@@ -32,6 +38,8 @@ public:
     void setPosy(int newPosy);
 
 private:
+    int velocidadY;
+    int aceleracionGravedad;
     QPixmap *complete;
     QPixmap *actual;
     QPixmap nuevo;

@@ -20,6 +20,6 @@ QRectF plataformas::boundingRect() const
 
 void plataformas::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
 {
-    painter->setBrush(Qt::blue);
+    painter->setBrush(Qt::red);
     painter->drawRect(boundingRect());
 }

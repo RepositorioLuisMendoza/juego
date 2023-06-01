@@ -15,10 +15,11 @@ MainWindow::MainWindow(QWidget *parent)
 
 void MainWindow::on_pushButton_clicked()
 {
-    QPixmap imagen(":/imagenes/fondo.jpeg");
+    QPixmap imagen(":/imagenes/interfaz.jpg");
     scene->clear();
     scene->addPixmap(imagen);
     ui->pushButton->hide();
+
 
 }
 
